@@ -35,7 +35,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedDate = $request->validate([
+            'name' => 'bail|required|string',
+            'price'=> 'bail|required',
+            'quantity'=> 'bail|required|integer',
+            'type'=>'bail|required|string',
+            'image'=>'bail|required|string'
+        ]);
+        Product::create($validatedDate);
+        return Product::all();
+       
     }
 
     /**
