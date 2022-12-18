@@ -77,8 +77,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
-    {
-        //
+    {   
+        $newQuantity = $request->quantity;
+        $product->quantity = $newQuantity;
+        $product->save();
     }
 
     /**
