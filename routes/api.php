@@ -19,5 +19,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('products', ProductController::class);
+Route::group(['middleware'=>'auth:sanctum'], function(){
+// dont allow users to delete or create new products
+Route::resource('user', UserController::class)-> only([
+    'store', 'destroy'
+]);
+});
+
+// allow users to add products to cart and see all products
+Route::resource('products', ProductController::class)->only([
+    'update', 'index'
+]);
+
 Route::post('login',[UserController::class, 'index']);
