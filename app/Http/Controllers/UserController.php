@@ -11,7 +11,7 @@ class UserController extends Controller
     function index(Request $request){
         $user = User::where('email', $request->email)->first();
         if(!$user || !Hash::check($request->password, $user->password)){
-            return response(['message'=>'The email or password you entered isn’t connected to an account.'], 404);
+            return response(['message'=>'The email or password you’ve entered is incorrect..'], 404);
         }
         $token = $user->createToken('vuebayapi')->plainTextToken;
         $response = [
