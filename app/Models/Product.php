@@ -20,5 +20,9 @@ class Product extends Model
         return $this->belongsTo(Inventory::class, 'inventory_id');
     }
 
+    public function discount(){
+        return $this->belongsTo(Discount::class, 'discount_id');
+    }
+
 }
 
