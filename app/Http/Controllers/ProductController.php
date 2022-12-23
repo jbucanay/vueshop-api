@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        $data = Product::with('discount','media')->get();
+        
+        
+        // Product::join('product_discount', 'product_discount.discount_id', '=', 'product.discount_id')
+        // ->with(['product_media'=> function($query){
+        //     $query->first();
+        // }])
+        // ->get(['product.product_id','product.product_name','product_media.media_link as image']);
+            return $data;
     }
 
  

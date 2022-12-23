@@ -11,6 +11,7 @@ class Product extends Model
     public const UPDATED_AT = 'modified_at';
     protected $primaryKey = 'product_id';
     protected $fillable = ['name','price', 'quantity', 'type', 'image'];
+    protected $hidden = ['created_at', 'modified_at'];
     
     public function media(){
         return $this->hasMany(Media::class, 'product_id', 'product_id');
