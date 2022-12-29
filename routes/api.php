@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DiscountController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -31,4 +32,5 @@ Route::resource('products', ProductController::class)->only([
     'update', 'index'
 ]);
 
+Route::get('discounts', [DiscountController::class, 'index']);
 Route::post('login',[UserController::class, 'index']);

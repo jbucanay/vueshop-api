@@ -11,6 +11,8 @@ class Discount extends Model
     protected $table = 'product_discount';
     protected $primaryKey = 'discount_id';
     public const UPDATED_AT = 'modified_at';
+    protected $hidden = ['created_at', 'modified_at'];
+
 
     public function product(){
         return $this->hasOne(Product::class, 'discount_id', 'discount_id');
