@@ -14,14 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::with('discount','media')->get();
-        
-        
-        // Product::join('product_discount', 'product_discount.discount_id', '=', 'product.discount_id')
-        // ->with(['product_media'=> function($query){
-        //     $query->first();
-        // }])
-        // ->get(['product.product_id','product.product_name','product_media.media_link as image']);
+        $data = Product::with('discount:discount_id,discount_percent','media:product_id,media_link') // columns from each join
+            ->get(['product_name', 'product_id', 'price', 'category_id', 'shipping_cost', 'discount_id']); // columns from product or parent model
             return $data;
     }
 
