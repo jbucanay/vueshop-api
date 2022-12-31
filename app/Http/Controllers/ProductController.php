@@ -48,7 +48,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        // return $product->product_id;
+        
         return $product::with('inventory:inventory_id,quantity', 'discount:discount_id,discount_percent','media:product_id,media_link')
                 ->where('product_id', $product->product_id)
                 ->get(['product_name', 'product_id', 'price', 'shipping_cost', 'discount_id', 'product_description','inventory_id']);
