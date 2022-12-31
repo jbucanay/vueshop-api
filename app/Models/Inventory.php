@@ -11,6 +11,7 @@ class Inventory extends Model
     protected $table = 'product_inventory';
     public const UPDATED_AT = 'modified_at';
     protected $primaryKey = 'inventory_id';
+    protected $hidden = ['created_at', 'modified_at'];
 
     public function product(){
         return $this->hasOne(Product::class, 'inventory_id', 'inventory_id');
