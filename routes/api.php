@@ -32,7 +32,7 @@ Route::resource('user', UserController::class)-> only([
 // ]);
 
 //excludes create and edit
-Route::apiResource('products', ProductController::class);
+Route::resource('products', ProductController::class);
 
 
 Route::get('discounts', [DiscountController::class, 'index']);
