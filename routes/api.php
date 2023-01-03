@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\InventoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,9 +32,15 @@ Route::resource('user', UserController::class)-> only([
 //     'update', 'index', 'show'
 // ]);
 
-//excludes create and edit
+//products resource
 Route::resource('products', ProductController::class);
 
-
+//discount
 Route::get('discounts', [DiscountController::class, 'index']);
+
+//login
 Route::post('login',[UserController::class, 'index']);
+
+
+//inventory
+Route::patch('inventory/{id}', [InventoryController::class, 'update']);

@@ -74,9 +74,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {   
-        $newQuantity = $request->quantity;
-        $product->quantity = $newQuantity;
-        $product->save();
+       
     }
 
     /**
