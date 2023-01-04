@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b327d07633c238272ead29c93fa20bf",
+    "content-hash": "171d03ee062120dd9b8b3f5b5c4bea41",
     "packages": [
         {
             "name": "brick/math",
@@ -1656,6 +1656,68 @@
             "time": "2022-04-17T13:12:02+00:00"
         },
         {
+            "name": "marksitko/laravel-unsplash",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marksitko/laravel-unsplash.git",
+                "reference": "ac64f8a5774960fcce366f12178831b39920c618"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marksitko/laravel-unsplash/zipball/ac64f8a5774960fcce366f12178831b39920c618",
+                "reference": "ac64f8a5774960fcce366f12178831b39920c618",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "illuminate/support": "^8.0|^9.0",
+                "php": "^8.0|^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MarkSitko\\LaravelUnsplash\\UnsplashServiceProvider"
+                    ],
+                    "aliases": {
+                        "Unsplash": "MarkSitko\\LaravelUnsplash\\Facades\\Unsplash"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MarkSitko\\LaravelUnsplash\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Sitko",
+                    "email": "hey@marksitko.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides a fluent Unsplash API for Laravel",
+            "homepage": "https://github.com/marksitko/laravel-unsplash",
+            "keywords": [
+                "laravel-unsplash",
+                "marksitko"
+            ],
+            "support": {
+                "issues": "https://github.com/marksitko/laravel-unsplash/issues",
+                "source": "https://github.com/marksitko/laravel-unsplash/tree/2.0.1"
+            },
+            "time": "2022-10-14T08:39:34+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.8.0",
             "source": {
@@ -2887,54 +2949,6 @@
                 }
             ],
             "time": "2022-12-31T22:20:34+00:00"
-        },
-        {
-            "name": "shweshi/laravel-unsplash-wrapper",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/shweshi/Laravel-Unsplash-Wrapper.git",
-                "reference": "9023eb812ab00c2367c6e575b8fb0430c149be97"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/shweshi/Laravel-Unsplash-Wrapper/zipball/9023eb812ab00c2367c6e575b8fb0430c149be97",
-                "reference": "9023eb812ab00c2367c6e575b8fb0430c149be97",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "shweshi\\LaravelUnsplashWrapper\\Providers\\UnsplashServiceProvider",
-                        "shweshi\\LaravelUnsplashWrapper\\Providers\\UnsplashUsersServiceProvider",
-                        "shweshi\\LaravelUnsplashWrapper\\Providers\\UnsplashPhotosServiceProvider",
-                        "shweshi\\LaravelUnsplashWrapper\\Providers\\UnsplashCollectionsServiceProvider",
-                        "shweshi\\LaravelUnsplashWrapper\\Providers\\UnsplashSearchServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "shweshi\\LaravelUnsplashWrapper\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Shashi Prakash Gautam",
-                    "email": "contactmespg@gmail.com"
-                }
-            ],
-            "description": "A Laravel wrapper for Unsplash",
-            "support": {
-                "issues": "https://github.com/shweshi/Laravel-Unsplash-Wrapper/issues",
-                "source": "https://github.com/shweshi/Laravel-Unsplash-Wrapper/tree/master"
-            },
-            "time": "2018-02-10T17:48:08+00:00"
         },
         {
             "name": "symfony/console",
