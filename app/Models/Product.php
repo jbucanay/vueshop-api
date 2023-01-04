@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+     use HasFactory;
     protected $table = 'product';
     public const UPDATED_AT = 'modified_at';
     protected $primaryKey = 'product_id';
-    protected $fillable = ['name','price', 'quantity', 'type', 'image'];
+    protected $fillable = ['product_name'];
     protected $hidden = ['created_at', 'modified_at'];
     
     public function media(){
