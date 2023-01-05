@@ -5,7 +5,7 @@
 namespace App\Http\Controllers;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
-use MarkSitko\LaravelUnsplash\Facades\Unsplash;
+
 
 
 

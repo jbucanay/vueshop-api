@@ -9,7 +9,7 @@ use App\Models\Media;
 use App\Models\Inventory;
 use App\Models\Discount;
 use App\Models\Category;
-use Illuminate\Support\Facades\DB;
+use MarkSitko\LaravelUnsplash\Facades\Unsplash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,16 +20,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // // \App\Models\User::factory(10)->create();
-
-        // // \App\Models\User::factory()->create([
-        // //     'name' => 'Test User',
-        // //     'email' => 'test@example.com',
-        // // ]);
-
-        // Product::factory(1)->create();
+       
          $faker = \Faker\Factory::create();
-        $faker->addProvider(new \Bezhanov\Faker\Provider\Commerce($faker));
+        \Bezhanov\Faker\ProviderCollectionHelper::addAllProvidersTo($faker);
         
         {
         for($i = 1; $i <= 1;$i++ ){
@@ -37,7 +30,20 @@ class DatabaseSeeder extends Seeder
         $category = Category::create(['category_name'=> 'test']);
         $inventory = Inventory::create(['quantity' => 1]);
         $product = Product::create(['product_name' => $faker->productName, 'inventory_id' => $inventory->inventory_id, 'category_id'=>$category->category_id, 'discount_id'=> $discount->discount_id]);
-        $media = Media::create(['product_id'=> $product->product_id, 'media_name'=> 'just making sure']);
+        $productName = explode(" ", $product->product_name);
+        $searchTerm = end($productName);
+        $imageCount = rand(1,2);
+        $getImages = Unsplash::randomPhoto()
+            ->orientation('landscape')
+            ->term($searchTerm)
+            ->count($imageCount)
+            ->toJson();
+        info($getImages);
+        for($j = 0; $j <= $imageCount-1; $j++){
+            $media = Media::create(['product_id'=> $product->product_id, 'media_name'=> 'just making sure', 'media_link'=> $getImages[$j]->urls->full]);
+        }
+      
+      
         }
         
     }
