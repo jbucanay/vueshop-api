@@ -11,7 +11,7 @@ class Product extends Model
     protected $table = 'product';
     public const UPDATED_AT = 'modified_at';
     protected $primaryKey = 'product_id';
-    protected $fillable = ['product_name'];
+    protected $fillable = ['product_name', 'product_description', 'product_sku','price', 'product_condition', 'shipping_cost'];
     protected $hidden = ['created_at', 'modified_at'];
     
     public function media(){
@@ -19,11 +19,15 @@ class Product extends Model
     }
 
     public function inventory(){
-        return $this->belongsTo(Inventory::class, 'inventory_id');
+        return $this->hasOne(Inventory::class, 'inventory_id');
     }
 
     public function discount(){
-        return $this->belongsTo(Discount::class, 'discount_id');
+        return $this->hasOne(Discount::class, 'discount_id');
+    }
+
+    public function category(){
+        return $this->hasOne(Category::class, 'category_id');
     }
 
 }

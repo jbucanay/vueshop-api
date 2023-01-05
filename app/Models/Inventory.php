@@ -15,7 +15,7 @@ class Inventory extends Model
     protected $fillable = ['quantity'];
 
     public function product(){
-        return $this->hasOne(Product::class, 'inventory_id', 'inventory_id');
+        return $this->belongsTo(Product::class);
     }
 }
 

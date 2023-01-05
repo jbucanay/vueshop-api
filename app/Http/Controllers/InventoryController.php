@@ -13,20 +13,24 @@ class InventoryController extends Controller
 {
     public function update(Request $request, $id){
         $faker = \Faker\Factory::create();
-        $faker->addProvider(new \Bezhanov\Faker\Provider\Commerce($faker));
-        // $counter = rand(1,5);
+        \Bezhanov\Faker\ProviderCollectionHelper::addAllProvidersTo($faker);
+        // $faker->addProvider(new \Bezhanov\Faker\Provider\Commerce($faker));
+        
+        // $counter = rand(1,2);
         // info($counter);
         // $person = Unsplash::randomPhoto()
         //     ->orientation('landscape')
-        //     ->term('phone')
+        //     ->term('Knife')
         //     ->count($counter)
         //     ->toJson();
         // for($i = 0; $i <= $counter-1; $i++){
         //     info($person[$i]->urls->full);
         // }
 
-        $str = $faker->productName;
-        info(gettype($str));
+        $productName = $faker->productName;
+        $price = $faker->randomFloat(2, 1,5000);
+        info($productName);
+        info($price);
 
         $newQuantity = $request->remainder;
         $inventory = Inventory::find($id);
